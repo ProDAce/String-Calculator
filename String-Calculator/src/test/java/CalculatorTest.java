@@ -1,6 +1,4 @@
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -51,5 +49,16 @@ public class CalculatorTest {
             }
 		});
 		assertEquals("negatives not allowed -1", exception.getMessage());
+	}
+	
+	@Test
+	void testTwoNegativeNumber() {
+		Throwable exception = assertThrows(IllegalArgumentException.class, new Executable() {
+			@Override
+			public void execute() throws Throwable {
+                cal.Add("-1,-2");
+            }
+		});
+		assertEquals("negatives not allowed -1 -2", exception.getMessage());
 	}
 }

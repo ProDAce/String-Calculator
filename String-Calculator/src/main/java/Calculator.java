@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Calculator {
 
 	public int Add(String numbers) {
@@ -25,13 +27,26 @@ public class Calculator {
 	private int sumOfNumbers(String[] numberList) {
 		
 		int sum = 0;
+		boolean throwException = false;
+		String exceptionMessage = "negatives not allowed";
+		List<String> exceptionList = new ArrayList<String>();
 		
 		for(int i = 0; i < numberList.length; i++) {
-			if(Integer.parseInt(numberList[i]) < 0 )
-				throw new IllegalArgumentException("negatives not allowed "+numberList[i]);
+			if(Integer.parseInt(numberList[i]) < 0 ) {
+				throwException = true;
+				exceptionList.add(numberList[i]);
+			}
 			
 			sum += Integer.parseInt(numberList[i]);
 		}
+		
+		if(throwException) {
+			for(String e: exceptionList)
+				exceptionMessage += " " + e;
+			
+			throw new IllegalArgumentException(exceptionMessage);
+		}
+			
 		
 		return sum;
 	}
