@@ -1,5 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 public class CalculatorTest {
 	
@@ -37,5 +40,16 @@ public class CalculatorTest {
 	@Test
 	void testDifferentDelimiters() {
 		assertEquals(cal.Add("//;\n1;2"), 3);
+	}
+	
+	@Test
+	void testNegativeNumber() {
+		Throwable exception = assertThrows(IllegalArgumentException.class, new Executable() {
+			@Override
+			public void execute() throws Throwable {
+                cal.Add("-1");
+            }
+		});
+		assertEquals("negatives not allowed -1", exception.getMessage());
 	}
 }

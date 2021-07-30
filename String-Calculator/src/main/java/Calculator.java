@@ -15,7 +15,6 @@ public class Calculator {
 				numbers = numbers.substring(4);
 			}
 				
-				
 			String numberList[] = numbers.split(delimiters);
 			
 			return sumOfNumbers(numberList);
@@ -28,6 +27,9 @@ public class Calculator {
 		int sum = 0;
 		
 		for(int i = 0; i < numberList.length; i++) {
+			if(Integer.parseInt(numberList[i]) < 0 )
+				throw new IllegalArgumentException("negatives not allowed "+numberList[i]);
+			
 			sum += Integer.parseInt(numberList[i]);
 		}
 		
