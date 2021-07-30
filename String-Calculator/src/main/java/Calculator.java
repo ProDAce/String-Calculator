@@ -51,11 +51,24 @@ public class Calculator {
 	}
 
 	private String delimiterSeparator(String input) {
-		String delimiters = "|"+input;
 		if (input.length() == 1)
-			return delimiters;
-		else 
-			return delimiters+"+";
+			return "|" + input;
+		else {
+			String delimiters = "";
+			for (int i = 0; i < input.length(); i++) {
+				
+				char currentCharacter = input.charAt(i);
+				
+				if (currentCharacter == '[')
+					delimiters += '|';
+				
+				delimiters += currentCharacter;
+				
+				if (currentCharacter == ']') 
+					delimiters += '+';
+			}
+			return delimiters + "+";
+		}
 	}
 
 	public void exceptionHandler(List<Integer> exceptionList) {

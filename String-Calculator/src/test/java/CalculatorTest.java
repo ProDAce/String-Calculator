@@ -71,4 +71,14 @@ public class CalculatorTest {
 	void testDelimiterOfAnyLength() {
 		assertEquals(6, cal.Add("//[***]\n1***2***3"));
 	}
+	
+	@Test
+	void testAnyNumberOfDelimiters() {
+		assertEquals(6, cal.Add("//[*][%]\n1*2%3"));
+	}
+	
+	@Test
+	void testAnyNumberOfDelimitersAndOfAnyLength() {
+		assertEquals(10, cal.Add("//[*][%][--]\n1*2%3--4"));
+	}
 }
