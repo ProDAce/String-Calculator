@@ -34,4 +34,8 @@ public class CalculatorTest {
 	void testNewlineDelimiter() {
 		assertEquals(cal.Add("1\n2,3"),6);
 	}
+	@Test
+	void testDifferentDelimiters() {
+		assertEquals(cal.Add("//;\n1;2"), 3);
+	}
 }

@@ -10,6 +10,12 @@ public class Calculator {
 		}
 		//If some numbers are present
 		else {
+			if(numbers.charAt(0) == '/') {
+				delimiters += "|"+numbers.charAt(2);
+				numbers = numbers.substring(4);
+			}
+				
+				
 			String numberList[] = numbers.split(delimiters);
 			
 			return sumOfNumbers(numberList);
@@ -18,6 +24,7 @@ public class Calculator {
 	
 	//Method to calculate sum of the numbers
 	private int sumOfNumbers(String[] numberList) {
+		
 		int sum = 0;
 		
 		for(int i = 0; i < numberList.length; i++) {
