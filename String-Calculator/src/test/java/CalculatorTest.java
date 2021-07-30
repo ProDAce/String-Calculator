@@ -66,4 +66,9 @@ public class CalculatorTest {
 	void testNumberGreaterThan1000() {
 		assertEquals(2, cal.Add("2,1001"));
 	}
+	
+	@Test
+	void testDelimiterOfAnyLength() {
+		assertEquals(6, cal.Add("//[***]\n1***2***3"));
+	}
 }
