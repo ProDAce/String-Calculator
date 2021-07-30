@@ -28,27 +28,34 @@ public class Calculator {
 		
 		int sum = 0;
 		boolean throwException = false;
-		String exceptionMessage = "negatives not allowed";
-		List<String> exceptionList = new ArrayList<String>();
+		List<Integer> exceptionList = new ArrayList<Integer>();
 		
 		for(int i = 0; i < numberList.length; i++) {
-			if(Integer.parseInt(numberList[i]) < 0 ) {
-				throwException = true;
-				exceptionList.add(numberList[i]);
-			}
+			int currentNumber = Integer.parseInt(numberList[i]);
 			
-			sum += Integer.parseInt(numberList[i]);
+			if(currentNumber < 0 ) {
+				throwException = true;
+				exceptionList.add(currentNumber);
+			}
+			if(currentNumber <= 1000)
+				sum += currentNumber;
 		}
 		
 		if(throwException) {
-			for(String e: exceptionList)
-				exceptionMessage += " " + e;
-			
-			throw new IllegalArgumentException(exceptionMessage);
+			exceptionHandler(exceptionList);
 		}
 			
 		
 		return sum;
+	}
+	
+	public void exceptionHandler(List<Integer> exceptionList) {
+		String exceptionMessage = "negatives not allowed";
+		for(int e: exceptionList)
+			exceptionMessage += " " + e;
+		
+		throw new IllegalArgumentException(exceptionMessage);
+		
 	}
 
 }

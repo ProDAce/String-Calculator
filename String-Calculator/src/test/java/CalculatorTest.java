@@ -8,36 +8,36 @@ public class CalculatorTest {
 
 	@Test
 	void testEmptyString() {
-		assertEquals(cal.Add(""), 0);
+		assertEquals(0, cal.Add(""));
 	}
 	
 	@Test
 	void testOneNumber() {
-		assertEquals(cal.Add("1"),1);
+		assertEquals(1, cal.Add("1"));
 	}
 	
 	@Test
 	void testTwoNumbers() {
-		assertEquals(cal.Add("1,2"),3);
+		assertEquals(3, cal.Add("1,2"));
 	}
 	
 	@Test
 	void testThreeNumbers() {
-		assertEquals(cal.Add("1,2,3"),6);
+		assertEquals(6, cal.Add("1,2,3"));
 	}
 	
 	@Test
 	void testFourNumbers() {
-		assertEquals(cal.Add("1,2,3,4"),10);
+		assertEquals(10, cal.Add("1,2,3,4"));
 	}
 	
 	@Test
 	void testNewlineDelimiter() {
-		assertEquals(cal.Add("1\n2,3"),6);
+		assertEquals(6, cal.Add("1\n2,3"));
 	}
 	@Test
 	void testDifferentDelimiters() {
-		assertEquals(cal.Add("//;\n1;2"), 3);
+		assertEquals(3, cal.Add("//;\n1;2"));
 	}
 	
 	@Test
@@ -60,5 +60,10 @@ public class CalculatorTest {
             }
 		});
 		assertEquals("negatives not allowed -1 -2", exception.getMessage());
+	}
+	
+	@Test
+	void testNumberGreaterThan1000() {
+		assertEquals(2, cal.Add("2,1001"));
 	}
 }
