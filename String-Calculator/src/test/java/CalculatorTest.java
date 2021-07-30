@@ -9,4 +9,14 @@ public class CalculatorTest {
 	void testEmptyString() {
 		assertEquals(cal.Add(""), 0);
 	}
+	
+	@Test
+	void testOneNumber() {
+		assertEquals(cal.Add("1"),1);
+	}
+	
+	@Test
+	void testTwoNumbers() {
+		assertEquals(cal.Add("1,2"),3);
+	}
 }
