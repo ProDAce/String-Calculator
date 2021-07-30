@@ -1,16 +1,18 @@
 public class Calculator {
 
 	public int Add(String numbers) {
-		String numberList[] = numbers.split(",");
-		if(numbers.isEmpty())
+		
+		if(numbers.isEmpty()) {
 			return 0;
-		else if(numberList.length == 1) {
-			return Integer.parseInt(numberList[0]);
 		}
 		else {
+			String numberList[] = numbers.split(",");
 			
 			int sum = 0;
-			sum = Integer.parseInt(numberList[0]) + Integer.parseInt(numberList[1]);
+			
+			for(int i = 0; i < numberList.length; i++) {
+				sum += Integer.parseInt(numberList[i]);
+			}
 			return sum;
 		}
 	}

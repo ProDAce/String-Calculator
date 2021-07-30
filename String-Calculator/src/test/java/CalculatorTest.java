@@ -19,4 +19,14 @@ public class CalculatorTest {
 	void testTwoNumbers() {
 		assertEquals(cal.Add("1,2"),3);
 	}
+	
+	@Test
+	void testThreeNumbers() {
+		assertEquals(cal.Add("1,2,3"),6);
+	}
+	
+	@Test
+	void testFourNumbers() {
+		assertEquals(cal.Add("1,2,3,4"),10);
+	}
 }
