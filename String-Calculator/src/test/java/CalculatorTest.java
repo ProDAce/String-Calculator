@@ -29,4 +29,9 @@ public class CalculatorTest {
 	void testFourNumbers() {
 		assertEquals(cal.Add("1,2,3,4"),10);
 	}
+	
+	@Test
+	void testNewlineDelimiter() {
+		assertEquals(cal.Add("1\n2,3"),6);
+	}
 }
